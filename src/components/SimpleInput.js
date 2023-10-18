@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const SimpleInput = (props) => {
-  const [enteredName, setEnteredName] = useState();
+  const [enteredName, setEnteredName] = useState("");
 
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
@@ -9,6 +9,10 @@ const SimpleInput = (props) => {
 
   const formSubmissionHandler = (event) => {
     event.preventDefault();
+
+    if (enteredName.trim() === "") {
+      return;
+    }
 
     console.log(enteredName);
 
